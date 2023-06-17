@@ -1,0 +1,12 @@
+@import 'variables';
+
+.component-showroom__container {
+    
+    background-color: $secondary-colour;
+
+    .component-showroom__page-title {
+        text-align: center;
+        margin: 0;
+
+    }
+}
