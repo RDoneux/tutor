@@ -1,11 +1,5 @@
 name: Angular CI
-on:
-  push:
-    branches: [ main ]  
-  pull_request:
-    branches: [ main ]  
-  workflow_dispatch:
-
+on: push
 jobs:
   build:
     runs-on: ubuntu-latest    
