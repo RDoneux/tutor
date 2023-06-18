@@ -1,12 +1,16 @@
-@import 'variables';
-
 .component-showroom__container {
-    
-    background-color: $secondary-colour;
+    padding: 2rem;
 
     .component-showroom__page-title {
         text-align: center;
         margin: 0;
+        padding-bottom: 2rem;
+    }
 
+    .component-showroom__item-type-container {
+
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        column-gap: 20px;
     }
 }
