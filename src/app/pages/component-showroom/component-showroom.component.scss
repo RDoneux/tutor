@@ -10,7 +10,7 @@
     .component-showroom__item-type-container {
 
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(5, auto);
         column-gap: 20px;
     }
 }

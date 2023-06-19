@@ -1,0 +1,7 @@
+<div #textInputContainer class="text-input__container">
+  <ng-content></ng-content>
+  <div class="text-input__label-wrapper" [class.retract-label]="hasContent">
+    <label class="text-input__label">{{ label }}</label>
+  </div>
+  <span></span>
+</div>
