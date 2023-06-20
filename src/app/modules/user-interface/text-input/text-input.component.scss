@@ -16,9 +16,21 @@
 
         &.ng-touched,
         &.ng-dirty {
-            ~.text-input__error {
-                opacity: 1;
+
+            &.ng-valid {
+                border: 1px solid $success-colour;
+                background-color: transparentize($success-colour, .95);
             }
+
+            &.ng-invalid {
+                border: 1px solid $danger-colour;
+                background-color: transparentize($danger-colour, .95);
+
+                ~.text-input__error {
+                    opacity: 1;
+                }
+            }
+
         }
 
         &:hover {
