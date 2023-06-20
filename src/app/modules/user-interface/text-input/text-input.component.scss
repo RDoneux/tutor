@@ -4,6 +4,10 @@
     display: block;
 }
 
+* {
+    box-sizing: border-box; // required because of shadow dom encapsulation 
+}
+
 .text-input__container {
 
     display: flex;
@@ -49,10 +53,11 @@
     .text-input__label-wrapper {
 
         background: rgb(0, 0, 0);
-        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(221, 230, 237, 1) 20%, rgba(221, 230, 237, 1) 80%, rgba(0, 0, 0, 0) 100%);
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(221, 230, 237, 1) 5%, rgba(221, 230, 237, 1) 95%, rgba(0, 0, 0, 0) 100%);
         height: 0px;
         width: fit-content;
         max-width: 100%;
+        padding: 0 10px;
 
         position: absolute;
         top: 23px;
@@ -68,7 +73,6 @@
 
             pointer-events: none;
             font-size: 18px;
-            padding: 0 20px;
             white-space: nowrap;
 
             overflow: hidden;
@@ -97,7 +101,7 @@
 
 .text-input__label-wrapper.retract-label {
     height: 1px;
-    transform: translateY(-19px) translateX(-10px);
+    transform: translateY(-19px) translateX(0px);
 
     label.text-input__label {
         font-size: 14px;
