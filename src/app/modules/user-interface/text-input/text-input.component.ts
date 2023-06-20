@@ -14,6 +14,7 @@ import {
   IValidationMessage,
   defaultIValidationMessage,
 } from './i-validation-message';
+import { v4 } from 'uuid';
 
 @Component({
   selector: 'app-text-input',
@@ -40,6 +41,7 @@ export class TextInputComponent implements OnInit, AfterViewInit {
 
   public hasContent: boolean = false;
   public error: IValidationMessage | undefined = undefined;
+  public id: string = v4();
   public _validationMessages: IValidationMessage[] = defaultIValidationMessage;
 
   private input: HTMLInputElement | undefined;
@@ -50,6 +52,8 @@ export class TextInputComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.input = this.container?.nativeElement.children[0] as HTMLInputElement;
+    this.input.id ? (this.id = this.input.id) : (this.input.id = this.id);
+
     this.addListeners();
   }
 

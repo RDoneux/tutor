@@ -1,28 +1,28 @@
 <section class="component-showroom__container">
   <h1 class="component-showroom__page-title">Component Showroom</h1>
   <form class="component-showroom__item-type-container">
-    <app-text-input [label]="'Basic Test Input Field with a very long title'"
-      ><input
+    <app-text-input [label]="'Basic Text Field'"
+      ><input id="text-area-input-id"
     /></app-text-input>
-    <app-text-input [label]="'test'"
+    <app-text-input [label]="'Prefilled Text Field'"
       ><input value="test input value"
     /></app-text-input>
-    <app-text-input [label]="'test'"><input readonly /></app-text-input>
-    <app-text-input [label]="'test'"><input disabled /></app-text-input>
+    <app-text-input [label]="'Readonly Text Field'"
+      ><input readonly
+    /></app-text-input>
+    <app-text-input [label]="'Disabled Text Field'"
+      ><input disabled
+    /></app-text-input>
     <app-text-input
-      [label]="'Basic Test Input Field with a very long title'"
+      [label]="'Validated Text Input'"
       [validationMessages]="[
         {
-          error: 'required',
-          message: 'This is the custom message that should be displayed'
-        },
-        {
           error: 'pattern',
-          message: 'This input must contain only lower caser letters'
+          message: 'This input must contain only lower case letters'
         },
         {
           error: 'minlength',
-          message: 'This is the custom min length message that should be displayed'
+          message: 'This field must be longer than 8 characters'
         }
       ]"
       ><input
@@ -30,7 +30,7 @@
         [(ngModel)]="validatedInput"
         required
         pattern="[a-z]*"
-        minlength="2"
+        minlength="8"
     /></app-text-input>
   </form>
 </section>

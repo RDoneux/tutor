@@ -1,0 +1,7 @@
+@import 'material-symbols';
+@import 'variables';
+
+.material-symbols-rounded {
+    color: $danger-colour;
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+}

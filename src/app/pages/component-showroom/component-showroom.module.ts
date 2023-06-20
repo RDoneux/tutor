@@ -5,6 +5,7 @@ import { ComponentShowroomRoutingModule } from './component-showroom-routing.mod
 import { ComponentShowroomComponent } from './component-showroom.component';
 import { UserInterfaceModule } from 'src/app/modules/user-interface/user-interface.module';
 import { FormsModule } from '@angular/forms';
+import { IconsModule } from 'src/app/modules/icons/icons.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     ComponentShowroomRoutingModule,
     UserInterfaceModule,
+    IconsModule,
     FormsModule
   ]
 })
