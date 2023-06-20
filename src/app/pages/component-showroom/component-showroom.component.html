@@ -4,9 +4,33 @@
     <app-text-input [label]="'Basic Test Input Field with a very long title'"
       ><input
     /></app-text-input>
-    <app-text-input [label]="'test'"><input /></app-text-input>
-    <app-text-input [label]="'test'"><input /></app-text-input>
-    <app-text-input [label]="'test'"><input /></app-text-input>
-    <app-text-input [label]="'test'"><input /></app-text-input>
+    <app-text-input [label]="'test'"
+      ><input value="test input value"
+    /></app-text-input>
+    <app-text-input [label]="'test'"><input readonly /></app-text-input>
+    <app-text-input [label]="'test'"><input disabled /></app-text-input>
+    <app-text-input
+      [label]="'test'"
+      [validationMessages]="[
+        {
+          error: 'required',
+          message: 'This is the custom message that should be displayed'
+        },
+        {
+          error: 'pattern',
+          message: 'This input must contain only lower caser letters'
+        },
+        {
+          error: 'minlength',
+          message: 'This is the custom min length message that should be displayed'
+        }
+      ]"
+      ><input
+        name="validatedInput"
+        [(ngModel)]="validatedInput"
+        required
+        pattern="[a-z]*"
+        minlength="2"
+    /></app-text-input>
   </form>
 </section>

@@ -5,4 +5,9 @@ input {
     border: 1px solid $border-colour;
     border-radius: $border-radius;
     background-color: $background-colour;
+    
+    &[readonly],
+    &[disabled] {
+        background-color: $disabled-colour;
+    }
 }
