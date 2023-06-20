@@ -4,7 +4,6 @@ import {
   ContentChild,
   ElementRef,
   Input,
-  OnInit,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -22,7 +21,7 @@ import { v4 } from 'uuid';
   styleUrls: ['./text-input.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom,
 })
-export class TextInputComponent implements OnInit, AfterViewInit {
+export class TextInputComponent implements AfterViewInit {
   @Input({ required: true }) label!: string;
   @Input()
   set validationMessages(additionalValidationMessages: IValidationMessage[]) {
@@ -48,30 +47,26 @@ export class TextInputComponent implements OnInit, AfterViewInit {
 
   constructor() {}
 
-  ngOnInit() {}
-
   ngAfterViewInit(): void {
     this.input = this.container?.nativeElement.children[0] as HTMLInputElement;
-    this.input.id ? (this.id = this.input.id) : (this.input.id = this.id);
-
     this.addListeners();
   }
 
-  addListeners() {
-    if (!this.input) {
-      return;
-    }
-
+  addListeners(): void {
+    const test: HTMLInputElement = this.input ?? new HTMLInputElement();
     setTimeout(() => {
+      if (!this.input) return;
       this.hasContent = this.checkForContent();
+      this.input.id ? (this.id = this.input.id) : (this.input.id = this.id);
     });
+    if(!this.input) return;
     fromEvent(this.input, 'keyup').subscribe({
       next: () => {
         this.hasContent = this.checkForContent();
       },
     });
 
-    if (!this.ngModel?.valueChanges) return; // SHOULDN'T BE RETURNING INSIDE VOID METHOD
+    if (!this.ngModel?.valueChanges) return;
     this.ngModel?.valueChanges.subscribe({
       next: () => {
         this.error = this._validationMessages.find((validationMessage) =>

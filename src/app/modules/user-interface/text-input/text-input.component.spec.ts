@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TextInputComponent } from './text-input.component';
+import { ErrorIconModule } from '../../icons/error-icon/error-icon.module';
 
 describe('TextInputComponent', () => {
   let component: TextInputComponent;
@@ -8,7 +9,8 @@ describe('TextInputComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TextInputComponent]
+      declarations: [TextInputComponent],
+      imports: [ErrorIconModule]
     });
     fixture = TestBed.createComponent(TextInputComponent);
     component = fixture.componentInstance;
