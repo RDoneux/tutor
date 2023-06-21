@@ -57,11 +57,9 @@ export class TextInputComponent implements AfterViewInit {
   }
 
   addListeners(): void {
-    const test: HTMLInputElement = this.input ?? new HTMLInputElement();
     setTimeout(() => {
-      if (!this.input) return;
       this.hasContent = this.checkForContent();
-      this.input.id ? (this.id = this.input.id) : (this.input.id = this.id);
+      this.createId();
     });
     if (!this.input) return;
     fromEvent(this.input, 'keyup').subscribe({
@@ -71,7 +69,7 @@ export class TextInputComponent implements AfterViewInit {
     });
 
     if (!this.ngModel?.valueChanges) return;
-    this.ngModel?.valueChanges.subscribe({
+    this.ngModel.valueChanges.subscribe({
       next: () => {
         this.error = this._validationMessages.find((validationMessage) =>
           this.ngModel?.hasError(validationMessage.error)
@@ -81,7 +79,12 @@ export class TextInputComponent implements AfterViewInit {
   }
 
   checkForContent(): boolean {
-    return this.input ? this.input.value.length > 0 : false;
+    return (this.input?.value?.length ?? 0) > 0;
+  }
+
+  createId(): void {
+    if (!this.input) return;
+    this.input.id ? (this.id = this.input.id) : (this.input.id = this.id);
   }
 
   validateComponent(): boolean {
