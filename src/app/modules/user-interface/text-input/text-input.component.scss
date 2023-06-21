@@ -16,7 +16,8 @@
     position: relative;
     padding-top: 4px;
 
-    input {
+    input,
+    select {
         color: $text-colour;
         transition: box-shadow 150ms linear;
 
@@ -106,6 +107,7 @@
         transform: translateY(2px);
         opacity: 0;
         transition: opacity 150ms linear;
+        pointer-events: none;
     }
 
     .text-input__error {

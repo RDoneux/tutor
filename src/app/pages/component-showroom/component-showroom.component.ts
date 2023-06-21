@@ -9,4 +9,6 @@ export class ComponentShowroomComponent {
 
   validatedInput: string = ''
 
+  validatedSelect: string = ''
+
 }

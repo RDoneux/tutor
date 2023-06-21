@@ -32,5 +32,41 @@
         pattern="[a-z]*"
         minlength="8"
     /></app-text-input>
+    <app-text-input [label]="'Basic Text Field'"
+      ><select id="text-area-input-id">
+        <option></option></select
+    ></app-text-input>
+    <app-text-input [label]="'Prefilled Text Field'"
+      ><select id="text-area-input-id">
+        <option>test</option>
+      </select></app-text-input
+    >
+    <app-text-input [label]="'Readonly Text Field'"
+      ><select id="text-area-input-id" readonly>
+        <option>test</option>
+      </select></app-text-input
+    >
+    <app-text-input [label]="'Disabled Text Field'"
+      ><select id="text-area-input-id" disabled>
+        <option>test</option>
+      </select></app-text-input
+    >
+    <app-text-input
+      [label]="'Validated Text Input'"
+      [validationMessages]="[
+        {
+          error: 'pattern',
+          message: 'You must only select test'
+        },
+        {
+          error: 'minlength',
+          message: 'This field must be longer than 8 characters'
+        }
+      ]"
+      ><select name="validatedSelect" [(ngModel)]="validatedSelect" required pattern="test">
+        <option>test</option>
+        <option>test 1</option>
+      </select></app-text-input
+    >
   </form>
 </section>

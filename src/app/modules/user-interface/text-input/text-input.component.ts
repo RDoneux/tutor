@@ -71,6 +71,7 @@ export class TextInputComponent implements AfterViewInit {
     if (!this.ngModel?.valueChanges) return;
     this.ngModel.valueChanges.subscribe({
       next: () => {
+        this.hasContent = this.checkForContent();
         this.error = this._validationMessages.find((validationMessage) =>
           this.ngModel?.hasError(validationMessage.error)
         );
@@ -88,7 +89,7 @@ export class TextInputComponent implements AfterViewInit {
   }
 
   validateComponent(): boolean {
-    if (!this.input || this.input.tagName != 'INPUT') {
+    if (!this.input || !['INPUT', 'SELECT'].includes(this.input.tagName)) {
       debugError('TextInput must have a valid input element');
       setTimeout(
         () =>
