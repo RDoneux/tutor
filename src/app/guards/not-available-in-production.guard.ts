@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { IsDevModeService } from '../services/isDevMode/is-dev-mode.service';
+import { IsDevModeService } from '../services/is-dev-mode/is-dev-mode.service';
 
 export const notAvailableInProductionGuard: CanActivateFn = () => {
   const router: Router = inject(Router);

@@ -6,7 +6,7 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import { notAvailableInProductionGuard } from './not-available-in-production.guard';
-import { IsDevModeService } from '../services/isDevMode/is-dev-mode.service';
+import { IsDevModeService } from '../services/is-dev-mode/is-dev-mode.service';
   
 describe('notAvailableInProductionGuard', () => {
   const executeGuard: CanActivateFn = (...guardParameters) =>
