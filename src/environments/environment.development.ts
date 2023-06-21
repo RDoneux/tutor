@@ -1,5 +1,5 @@
 import { IEnvironment } from "./i-environment";
 
 export const environment: IEnvironment = {
-    debug:['Application']
+    debug:['Application', 'Error']
 };

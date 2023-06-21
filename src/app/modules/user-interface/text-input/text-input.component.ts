@@ -14,6 +14,8 @@ import {
   defaultIValidationMessage,
 } from './i-validation-message';
 import { v4 } from 'uuid';
+import { debugError } from '../../../utils/debug';
+import { IsDevModeService } from 'src/app/services/is-dev-mode/is-dev-mode.service';
 
 @Component({
   selector: 'app-text-input',
@@ -45,11 +47,13 @@ export class TextInputComponent implements AfterViewInit {
 
   private input: HTMLInputElement | undefined;
 
-  constructor() {}
+  constructor(private isDevModeService: IsDevModeService) {}
 
   ngAfterViewInit(): void {
     this.input = this.container?.nativeElement.children[0] as HTMLInputElement;
-    this.addListeners();
+    if (this.validateComponent()) {
+      this.addListeners();
+    }
   }
 
   addListeners(): void {
@@ -59,7 +63,7 @@ export class TextInputComponent implements AfterViewInit {
       this.hasContent = this.checkForContent();
       this.input.id ? (this.id = this.input.id) : (this.input.id = this.id);
     });
-    if(!this.input) return;
+    if (!this.input) return;
     fromEvent(this.input, 'keyup').subscribe({
       next: () => {
         this.hasContent = this.checkForContent();
@@ -80,9 +84,17 @@ export class TextInputComponent implements AfterViewInit {
     return this.input ? this.input.value.length > 0 : false;
   }
 
-  validateComponent() {
+  validateComponent(): boolean {
     if (!this.input || this.input.tagName != 'INPUT') {
-      // import debugger
+      debugError('TextInput must have a valid input element');
+      setTimeout(
+        () =>
+          (this.label = this.isDevModeService.isDevMode()
+            ? 'TextInput must have a valid Input'
+            : '')
+      );
+      return false;
     }
+    return true;
   }
 }

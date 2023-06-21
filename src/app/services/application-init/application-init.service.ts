@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment';
 import packageJson from '../../../../package.json';
 
 import dbg from 'debug';
-import * as debug from 'debug';
+import { debug } from '../../utils/debug';
 import { IsDevModeService } from '../is-dev-mode/is-dev-mode.service';
 
 @Injectable({
@@ -20,7 +20,7 @@ export class ApplicationInitService {
   private initDebug() {
     dbg.enable(
       environment.debug
-        .map((namespace: string) => `tutorLog: ${namespace}`)
+        .map((namespace: string) => `tutorlog:${namespace}`)
         .join(',')
     );
     const welcome = debug('Application');
