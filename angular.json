@@ -28,6 +28,7 @@
             "stylePreprocessorOptions": {
               "includePaths": ["src/global-styles"]
             },
+            "allowedCommonJsDependencies": ["debug"],
             "scripts": []
           },
           "configurations": {

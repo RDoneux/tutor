@@ -20,7 +20,7 @@ input[type="submit"] {
     color: #FFFFFF;
     background-color: $primary-colour;
     font-size: $input-font-size;
-
+    width: 100%;
 
     transition: background-color 150ms linear, box-shadow 150ms linear;
 
