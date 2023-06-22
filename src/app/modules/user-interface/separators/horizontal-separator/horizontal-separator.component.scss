@@ -1,5 +1,12 @@
 @import 'variables';
 
+:host {
+    display: block;
+    width: 100%;
+
+    margin: 20px 0;
+}
+
 div {
     display: flex;
     align-items: center;

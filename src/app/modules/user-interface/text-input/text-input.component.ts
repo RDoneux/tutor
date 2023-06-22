@@ -89,7 +89,7 @@ export class TextInputComponent implements AfterViewInit {
   }
 
   validateComponent(): boolean {
-    if (!this.input || !['INPUT', 'SELECT'].includes(this.input.tagName)) {
+    if (!this.input || !['INPUT', 'SELECT', 'TEXTAREA'].includes(this.input.tagName)) {
       debugError('TextInput must have a valid input element');
       setTimeout(
         () =>

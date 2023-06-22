@@ -11,4 +11,6 @@ export class ComponentShowroomComponent {
 
   validatedSelect: string = ''
 
+  validatedTextarea: string = ''
+
 }

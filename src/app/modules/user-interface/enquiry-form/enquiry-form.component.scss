@@ -43,31 +43,30 @@
 
     .enquiry-form__horizontal-separator {
         grid-column: 2 / span 8;
-        margin: 20px 0;
     }
 
     .enquiry-form__title {
-        grid-column: 1 / span 1;
+        grid-column: 1 / span 2;
     }
 
     .enquiry-form__forename {
-        grid-column: 2 / span 3;
+        grid-column: 3 / span 4;
     }
 
     .enquiry-form__surname {
-        grid-column: 5 / span 3;
+        grid-column: 7 / span 4;
     }
 
     .enquiry-form__postcode {
-        grid-column: 8 / span 3;
+        grid-column: 1 / span 3;
     }
 
     .enquiry-form__phone {
-        grid-column: 3 / span 3;
+        grid-column: 4 / span 4;
     }
 
     .enquiry-form__email {
-        grid-column: 6 / span 3;
+        grid-column: 8 / span 3;
     }
 
     .enquiry-form__submit {
