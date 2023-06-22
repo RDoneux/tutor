@@ -23,7 +23,7 @@
         color: $text-colour;
         transition: box-shadow 150ms linear;
 
-        &.ng-touched {
+        &.ng-touched:not([data-no-validation-styles]) {
             &.ng-valid {
                 border: 1px solid $success-colour;
                 background-color: transparentize($success-colour, .95);

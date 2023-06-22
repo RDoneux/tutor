@@ -7,8 +7,7 @@ import { IEnquiryForm } from './i-enquiry-form';
   styleUrls: ['./enquiry-form.component.scss'],
 })
 export class EnquiryFormComponent {
-
-  public formName: string = 'enquiryForm'
+  public formName: string = 'enquiryForm';
   public enquiryForm: IEnquiryForm = {
     yearGroupOrAge: {
       label: 'Year group or age',
@@ -72,9 +71,17 @@ export class EnquiryFormComponent {
       name: 'email',
       value: '',
     },
+    toggleComments: {
+      label: 'Add Additional Comments',
+      name: 'additionalComments',
+      value: false,
+    },
+    additionalComments: {
+      label: 'Additional Comments',
+      name: 'additionalComments',
+      value: '',
+    },
   };
 
-  onSubmit() {
-    
-  }
+  onSubmit() {}
 }

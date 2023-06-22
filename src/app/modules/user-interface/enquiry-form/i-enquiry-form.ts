@@ -10,6 +10,8 @@ export interface IEnquiryForm {
   postcode: IEnquiryFreeField;
   phoneNumber: IEnquiryFreeField;
   email: IEnquiryFreeField;
+  toggleComments: IEnquiryCheckbox;
+  additionalComments: IEnquiryFreeField;
 }
 
 interface IEnquiryDetail {
@@ -24,11 +26,15 @@ interface IEnquiryDropdownDetail extends IEnquiryDetail {
     | Subject
     | SubjectLevel
     | Title;
-  options: string[]
+  options: string[];
 }
 
 interface IEnquiryFreeField extends IEnquiryDetail {
   value: string | number;
+}
+
+interface IEnquiryCheckbox extends IEnquiryDetail {
+  value: boolean;
 }
 
 type YearGroupOrAgeValue =

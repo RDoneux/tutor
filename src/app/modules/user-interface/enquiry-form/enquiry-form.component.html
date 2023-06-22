@@ -24,6 +24,7 @@
     <select
       [name]="enquiryForm.faceToFaceOrOnline.name"
       [(ngModel)]="enquiryForm.faceToFaceOrOnline.value"
+      data-no-validation-styles
       required
     >
       <option *ngFor="let option of enquiryForm.faceToFaceOrOnline.options">
@@ -64,7 +65,9 @@
     </select>
   </app-text-input>
 
-  <app-horizontal-separator class="enquiry-form__horizontal-separator"></app-horizontal-separator>
+  <app-horizontal-separator
+    class="enquiry-form__horizontal-separator"
+  ></app-horizontal-separator>
 
   <!-- Title -->
   <app-text-input class="enquiry-form__title" [label]="enquiryForm.title.label">
@@ -135,6 +138,32 @@
       pattern="/^\S+@\S+\.\S+$/"
       required
     />
+  </app-text-input>
+
+  <!-- Toggle Additional Comments -->
+
+  <app-checkbox
+    class="enquiry-form__toggle-comments"
+    [label]="enquiryForm.toggleComments.label"
+    ><input
+      type="checkbox"
+      [name]="enquiryForm.toggleComments.name"
+      [(ngModel)]="enquiryForm.toggleComments.value"
+  /></app-checkbox>
+
+  <!-- Additional Comments -->
+  <app-text-input
+    *ngIf="enquiryForm.toggleComments.value"
+    class="enquiry-form__additional-comments"
+    [label]="enquiryForm.additionalComments.label"
+  >
+    <textarea
+      [name]="enquiryForm.additionalComments.name"
+      [(ngModel)]="enquiryForm.additionalComments.value"
+      maxlength="2000"
+      data-no-validation-styles
+    >
+    </textarea>
   </app-text-input>
 
   <input class="enquiry-form__submit" type="submit" value="Submit" />
