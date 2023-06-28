@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   ContentChild,
   ElementRef,
@@ -7,23 +6,22 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { NgModel } from '@angular/forms';
-import { fromEvent } from 'rxjs';
 import {
   IValidationMessage,
   defaultIValidationMessage,
-} from './i-validation-message';
+} from '../text-input/i-validation-message';
 import { v4 } from 'uuid';
-import { debugError } from '../../../utils/debug';
 import { IsDevModeService } from 'src/app/services/is-dev-mode/is-dev-mode.service';
+import { debugError } from 'src/app/utils/debug';
+import { NgModel } from '@angular/forms';
 
 @Component({
-  selector: 'app-text-input',
-  templateUrl: './text-input.component.html',
-  styleUrls: ['./text-input.component.scss'],
+  selector: 'app-checkbox',
+  templateUrl: './checkbox.component.html',
+  styleUrls: ['./checkbox.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom,
 })
-export class TextInputComponent implements AfterViewInit {
+export class CheckboxComponent {
   @Input({ required: true }) label!: string;
   @Input()
   set validationMessages(additionalValidationMessages: IValidationMessage[]) {
@@ -34,15 +32,14 @@ export class TextInputComponent implements AfterViewInit {
     ];
   }
 
-  @ViewChild('textInputContainer') container:
+  @ViewChild('checkboxContainer') container:
     | ElementRef<HTMLDivElement>
     | undefined;
 
   @ContentChild(NgModel) ngModel: NgModel | undefined;
 
-  public hasContent: boolean = false;
-  public error: IValidationMessage | undefined = undefined;
   public id: string = v4();
+  public error: IValidationMessage | undefined = undefined;
   public _validationMessages: IValidationMessage[] = defaultIValidationMessage;
 
   private input: HTMLInputElement | undefined;
@@ -58,20 +55,11 @@ export class TextInputComponent implements AfterViewInit {
 
   addListeners(): void {
     setTimeout(() => {
-      this.hasContent = this.checkForContent();
       this.createId();
     });
-    if (!this.input) return;
-    fromEvent(this.input, 'keyup').subscribe({
-      next: () => {
-        this.hasContent = this.checkForContent();
-      },
-    });
-
     if (!this.ngModel?.valueChanges) return;
     this.ngModel.valueChanges.subscribe({
       next: () => {
-        this.hasContent = this.checkForContent();
         this.error = this._validationMessages.find((validationMessage) =>
           this.ngModel?.hasError(validationMessage.error)
         );
@@ -79,22 +67,23 @@ export class TextInputComponent implements AfterViewInit {
     });
   }
 
-  checkForContent(): boolean {
-    return (this.input?.value?.length ?? 0) > 0;
-  }
-
+  //TODO: move to shared file
   createId(): void {
     if (!this.input) return;
     this.input.id ? (this.id = this.input.id) : (this.input.id = this.id);
   }
 
   validateComponent(): boolean {
-    if (!this.input || !['INPUT', 'SELECT', 'TEXTAREA'].includes(this.input.tagName)) {
-      debugError('TextInput must have a valid input element');
+    if (
+      !this.input ||
+      this.input.tagName != 'INPUT' ||
+      this.input.type != 'checkbox'
+    ) {
+      debugError('Checkbox must have a valid input element');
       setTimeout(
         () =>
           (this.label = this.isDevModeService.isDevMode()
-            ? 'TextInput must have a valid Input'
+            ? 'checkbox must have a valid Input'
             : '')
       );
       return false;

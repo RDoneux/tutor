@@ -2,6 +2,7 @@
 
 :host {
     display: block;
+    min-width: 0;
 }
 
 * {
@@ -17,20 +18,32 @@
     padding-top: 4px;
 
     input,
-    select {
+    select,
+    textarea {
         color: $text-colour;
         transition: box-shadow 150ms linear;
 
-        &.ng-touched,
-        &.ng-dirty {
+        &[required] {
+            ~.text-input__label-wrapper {
+                .text-input__label:after {
+                    content: '*';
+                    padding-left: 2px;
+                    color: $danger-colour;
+                    font-size: 12px;
+                    position: absolute;
+                }
+            }
+        }
+
+        &.ng-touched:not([data-no-validation-styles]) {
             &.ng-valid {
                 border: 1px solid $success-colour;
-                background-color: transparentize($success-colour, .95);
+                background-color: transparentize($success-colour, .98);
             }
 
             &.ng-invalid {
                 border: 1px solid $danger-colour;
-                background-color: transparentize($danger-colour, .95);
+                background-color: transparentize($danger-colour, .98);
 
                 ~.text-input__error-symbol {
                     opacity: 1;
@@ -87,7 +100,7 @@
 
             overflow: hidden;
             text-overflow: ellipsis;
-            opacity: .5;
+            opacity: .9;
 
             transition: font-size 150ms ease-out, opacity 150ms ease-out;
         }
@@ -121,7 +134,7 @@
 
 .text-input__label-wrapper.retract-label {
     height: 1px;
-    transform: translateY(-19px) translateX(0px);
+    transform: translateY(-19px);
 
     label.text-input__label {
         font-size: 14px;

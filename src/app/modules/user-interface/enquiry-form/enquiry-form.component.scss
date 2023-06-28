@@ -1,0 +1,93 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+    display: block;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.enquiry-form__container {
+
+    column-gap: 20px;
+    row-gap: 15px;
+
+    width: 100%;
+    max-width: $laptop-end;
+
+    display: inline-grid;
+
+    @include laptop {
+        padding: 1rem;
+    }
+
+    @include desktop {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+
+
+        .enquiry-form__form-title {
+            grid-column: 1 / span 10;
+            text-align: center;
+        }
+
+        .enquiry-form__year-group {
+            grid-column: 1 / span 5;
+        }
+
+        .enquiry-form__in-person-online {
+            grid-column: 6 / span 5;
+        }
+
+        .enquiry-form__subject {
+            grid-column: 1 / span 5;
+        }
+
+        .enquiry-form__subject-level {
+            grid-column: 6 / span 5;
+        }
+
+        .enquiry-form__horizontal-separator {
+            grid-column: 2 / span 8;
+        }
+
+        .enquiry-form__title {
+            grid-column: 1 / span 2;
+        }
+
+        .enquiry-form__forename {
+            grid-column: 3 / span 4;
+        }
+
+        .enquiry-form__surname {
+            grid-column: 7 / span 4;
+        }
+
+        .enquiry-form__postcode {
+            grid-column: 1 / span 3;
+        }
+
+        .enquiry-form__phone {
+            grid-column: 4 / span 4;
+        }
+
+        .enquiry-form__email {
+            grid-column: 8 / span 3;
+        }
+
+        .enquiry-form__toggle-comments {
+            grid-column: 1 / span 10;
+        }
+
+        .enquiry-form__additional-comments {
+            grid-column: 1 / span 10;
+        }
+
+        .enquiry-form__submit {
+            grid-column: 7 / span 4;
+        }
+    }
+}

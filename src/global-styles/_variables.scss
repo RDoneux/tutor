@@ -1,7 +1,7 @@
 $background-colour: #F2F2F2;
 $primary-colour: #7C96AB;
 $secondary-colour: #DDE6ED;
-$text-colour: #818181;
+$text-colour: #555555;
 $border-colour: #d1d1d1;
 $accent-colour: #F97B22;
 
@@ -11,3 +11,26 @@ $danger-colour: #f24b2e;
 $success-colour: #89D849;
 
 $border-radius: 5px;
+
+$font-family: 'Open Sans', sans-serif;  
+
+$mobile-start: 600px;
+$tablet-end: 600px;
+$tablet-landscape-end: 768px;
+$laptop-end: 992px;
+$desktop-start: 1200px;
+
+//  /* Extra small devices (phones, 600px and down) */
+//  @media only screen and (max-width: 600px) {...}
+
+//  /* Small devices (portrait tablets and large phones, 600px and up) */
+//  @media only screen and (min-width: 600px) {...}
+
+//  /* Medium devices (landscape tablets, 768px and up) */
+//  @media only screen and (min-width: 768px) {...}
+
+//  /* Large devices (laptops/desktops, 992px and up) */
+//  @media only screen and (min-width: 992px) {...}
+
+//  /* Extra large devices (large laptops and desktops, 1200px and up) */
+//  @media only screen and (min-width: 1200px) {...} 

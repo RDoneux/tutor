@@ -1,0 +1,5 @@
+<div #checkboxContainer class="checkbox__container">
+  <ng-content></ng-content>
+  <label class="checkbox__label" [for]="id">{{ label }}</label>
+  <span class="checkbox__error">{{ error?.message }}</span>
+</div>

@@ -1,5 +1,6 @@
-<section class="component-showroom__container">
+<!-- <section class="component-showroom__container">
   <h1 class="component-showroom__page-title">Component Showroom</h1>
+  <h3>Input Fields</h3>
   <form class="component-showroom__item-type-container">
     <app-text-input [label]="'Basic Text Field'"
       ><input id="text-area-input-id"
@@ -63,13 +64,59 @@
           message: 'This field must be longer than 8 characters'
         }
       ]"
-      ><select name="validatedSelect" [(ngModel)]="validatedSelect" required pattern="test">
+      ><select
+        name="validatedSelect"
+        [(ngModel)]="validatedSelect"
+        required
+        pattern="test"
+      >
         <option>test</option>
         <option>test 1</option>
       </select></app-text-input
     >
+    <app-text-input [label]="'Basic Text Field'">
+      <textarea spellCheck="true" lang="en"></textarea>
+    </app-text-input>
+    <app-text-input [label]="'Prefilled Text Field'">
+      <textarea spellCheck="true" lang="en"> prefilled value</textarea>
+    </app-text-input>
+    <app-text-input [label]="'Readonly Text Field'">
+      <textarea readonly></textarea>
+    </app-text-input>
+    <app-text-input [label]="'Disabled Text Field'">
+      <textarea disabled></textarea>
+    </app-text-input>
+    <app-text-input
+      [label]="'Validated Text Input'"
+      [validationMessages]="[
+        {
+          error: 'pattern',
+          message: 'This input must contain only lower case letters'
+        },
+        {
+          error: 'minlength',
+          message: 'This field must be longer than 20 characters'
+        },
+        {
+          error: 'maxlength',
+          message: 'this field can not be longer than 40 characters'
+        }
+      ]"
+    >
+      <textarea
+        name="textareavalidated"
+        [(ngModel)]="validatedTextarea"
+        required
+        minlength="20"
+        maxlength="40"
+      ></textarea>
+    </app-text-input>
     <input type="submit" value="Basic Button" />
     <input type="submit" value="Disabled Basic Button" disabled />
-
   </form>
+</section>
+<app-horizontal-separator></app-horizontal-separator> -->
+
+<section>
+  <app-enquiry-form></app-enquiry-form>
 </section>

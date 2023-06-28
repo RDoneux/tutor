@@ -3,11 +3,13 @@
 $input-font-size: 18px;
 
 input,
-select {
+select,
+textarea {
     padding: .7rem .6rem;
     border: 1px solid $border-colour;
     border-radius: $border-radius;
     background-color: $background-colour;
+    font-family: $font-family;
 
     &[readonly],
     &[disabled] {
@@ -20,7 +22,7 @@ input[type="submit"] {
     color: #FFFFFF;
     background-color: $primary-colour;
     font-size: $input-font-size;
-
+    width: 100%;
 
     transition: background-color 150ms linear, box-shadow 150ms linear;
 
@@ -30,4 +32,8 @@ input[type="submit"] {
         background-color: $accent-colour;
         box-shadow: 0 3px 12px -3px $text-colour;
     }
+}
+
+textarea {
+    resize: vertical;
 }

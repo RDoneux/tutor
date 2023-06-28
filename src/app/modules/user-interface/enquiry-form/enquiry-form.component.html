@@ -1,0 +1,173 @@
+<form class="enquiry-form__container" [name]="formName" (ngSubmit)="onSubmit()">
+  <h1 class="enquiry-form__form-title">Enquire Now</h1>
+  <!-- Year Group or Age -->
+  <app-text-input
+    class="enquiry-form__year-group"
+    [label]="enquiryForm.yearGroupOrAge.label"
+  >
+    <select
+      [name]="enquiryForm.yearGroupOrAge.name"
+      [(ngModel)]="enquiryForm.yearGroupOrAge.value"
+      required
+    >
+      <option *ngFor="let option of enquiryForm.yearGroupOrAge.options">
+        {{ option }}
+      </option>
+    </select>
+  </app-text-input>
+
+  <!-- Face-to-face or Online -->
+  <app-text-input
+    class="enquiry-form__in-person-online"
+    [label]="enquiryForm.faceToFaceOrOnline.label"
+  >
+    <select
+      [name]="enquiryForm.faceToFaceOrOnline.name"
+      [(ngModel)]="enquiryForm.faceToFaceOrOnline.value"
+      data-no-validation-styles
+      required
+    >
+      <option *ngFor="let option of enquiryForm.faceToFaceOrOnline.options">
+        {{ option }}
+      </option>
+    </select>
+  </app-text-input>
+
+  <!-- Subject -->
+  <app-text-input
+    class="enquiry-form__subject"
+    [label]="enquiryForm.subject.label"
+  >
+    <select
+      [name]="enquiryForm.subject.name"
+      [(ngModel)]="enquiryForm.subject.value"
+      required
+    >
+      <option *ngFor="let option of enquiryForm.subject.options">
+        {{ option }}
+      </option>
+    </select>
+  </app-text-input>
+
+  <!-- Subject Level -->
+  <app-text-input
+    class="enquiry-form__subject-level"
+    [label]="enquiryForm.subjectLevel.label"
+  >
+    <select
+      [name]="enquiryForm.subjectLevel.name"
+      [(ngModel)]="enquiryForm.subjectLevel.value"
+      required
+    >
+      <option *ngFor="let option of enquiryForm.subjectLevel.options">
+        {{ option }}
+      </option>
+    </select>
+  </app-text-input>
+
+  <app-horizontal-separator
+    class="enquiry-form__horizontal-separator"
+  ></app-horizontal-separator>
+
+  <!-- Title -->
+  <app-text-input class="enquiry-form__title" [label]="enquiryForm.title.label">
+    <select
+      [name]="enquiryForm.title.name"
+      [(ngModel)]="enquiryForm.title.value"
+      required
+    >
+      <option *ngFor="let option of enquiryForm.title.options">
+        {{ option }}
+      </option>
+    </select>
+  </app-text-input>
+
+  <!-- Forename -->
+  <app-text-input
+    class="enquiry-form__forename"
+    [label]="enquiryForm.forename.label"
+  >
+    <input
+      [name]="enquiryForm.forename.name"
+      [(ngModel)]="enquiryForm.forename.value"
+      required
+    />
+  </app-text-input>
+
+  <!-- Surname -->
+  <app-text-input
+    class="enquiry-form__surname"
+    [label]="enquiryForm.surname.label"
+  >
+    <input
+      [name]="enquiryForm.surname.name"
+      [(ngModel)]="enquiryForm.surname.value"
+      required
+    />
+  </app-text-input>
+
+  <!-- Postcode -->
+  <app-text-input
+    class="enquiry-form__postcode"
+    [label]="enquiryForm.postcode.label"
+  >
+    <input
+      [name]="enquiryForm.postcode.name"
+      [(ngModel)]="enquiryForm.postcode.value"
+      data-no-validation-styles
+    />
+  </app-text-input>
+
+  <!-- Phone Number -->
+  <app-text-input
+    class="enquiry-form__phone"
+    [label]="enquiryForm.phoneNumber.label"
+  >
+    <input
+      type="tel"
+      [name]="enquiryForm.phoneNumber.name"
+      [(ngModel)]="enquiryForm.phoneNumber.value"
+      data-no-validation-styles
+    />
+  </app-text-input>
+
+  <!-- Email -->
+  <app-text-input class="enquiry-form__email" [label]="enquiryForm.email.label">
+    <input
+      type="email"
+      [name]="enquiryForm.email.name"
+      [(ngModel)]="enquiryForm.email.value"
+      pattern="/^\S+@\S+\.\S+$/"
+      required
+    />
+  </app-text-input>
+
+  <!-- Toggle Additional Comments -->
+
+  <app-checkbox
+    class="enquiry-form__toggle-comments"
+    [label]="enquiryForm.toggleComments.label"
+    ><input
+      type="checkbox"
+      [name]="enquiryForm.toggleComments.name"
+      [(ngModel)]="enquiryForm.toggleComments.value"
+      [ngModelOptions]="{standalone: true}"
+  /></app-checkbox>
+
+  <!-- Additional Comments -->
+  <app-text-input
+    *ngIf="enquiryForm.toggleComments.value"
+    class="enquiry-form__additional-comments"
+    [label]="enquiryForm.additionalComments.label"
+  >
+    <textarea
+      [name]="enquiryForm.additionalComments.name"
+      [(ngModel)]="enquiryForm.additionalComments.value"
+      maxlength="2000"
+      data-no-validation-styles
+    >
+    </textarea>
+  </app-text-input>
+
+  <input class="enquiry-form__submit" type="submit" value="Submit" />
+</form>
