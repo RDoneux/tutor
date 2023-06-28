@@ -1,0 +1,13 @@
+@import 'variables';
+
+@mixin desktop () {
+    @media (min-width: $desktop-start){
+        @content;
+    }
+}
+
+@mixin laptop() {
+    @media (max-width: $laptop-end) {
+        @content
+    }
+}

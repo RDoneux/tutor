@@ -23,6 +23,18 @@
         color: $text-colour;
         transition: box-shadow 150ms linear;
 
+        &[required] {
+            ~.text-input__label-wrapper {
+                .text-input__label:after {
+                    content: '*';
+                    padding-left: 2px;
+                    color: $danger-colour;
+                    font-size: 12px;
+                    position: absolute;
+                }
+            }
+        }
+
         &.ng-touched:not([data-no-validation-styles]) {
             &.ng-valid {
                 border: 1px solid $success-colour;
