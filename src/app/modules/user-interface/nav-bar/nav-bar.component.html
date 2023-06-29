@@ -6,8 +6,20 @@
     [routerLink]="routes.home.url"
   />
   <div class="nav-bar__nav-items">
-    <span [routerLink]="[routes.aboutMe.url]">{{ routes.aboutMe.label }}</span>
-    <span [routerLink]="routes.pricing.url">{{ routes.pricing.label }}</span>
-    <span [routerLink]="routes.enquire.url">{{ routes.enquire.label }}</span>
+    <span
+      [routerLink]="routes.aboutMe.url"
+      [routerLinkActive]="['active-route']"
+      >{{ routes.aboutMe.label }}</span
+    >
+    <span
+      [routerLink]="routes.pricing.url"
+      [routerLinkActive]="['active-route']"
+      >{{ routes.pricing.label }}</span
+    >
+    <span
+      [routerLink]="routes.enquire.url"
+      [routerLinkActive]="['active-route']"
+      >{{ routes.enquire.label }}</span
+    >
   </div>
 </section>

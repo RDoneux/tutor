@@ -25,10 +25,23 @@
     .nav-bar__nav-items {
         span {
             padding: 0 20px;
+            display: inline-block;
+
+            transition: transform 150ms linear, color 150ms linear;
 
             &:hover {
+                transform: scale(1.1);
                 cursor: pointer;
             }
+
+            &.active-route {
+                transition: transform 150ms ease-in, color 150ms linear;
+
+                transform: scale(1.2);
+                color: $accent-colour;
+            }
+
         }
+
     }
 }
