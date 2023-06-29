@@ -8,7 +8,7 @@ import { INavigationRoute } from 'src/app/interfaces/i-navigation-route';
 })
 export class NavBarComponent {
   routes: INavigationRoutes = {
-    home: { url: 'home', label: '' },
+    home: { url: '', label: '' },
     aboutMe: { url: '/about-me', label: 'About Me' },
     pricing: { url: 'pricing', label: 'Pricing' },
     enquire: { url: 'enquire', label: 'Enquire' },
