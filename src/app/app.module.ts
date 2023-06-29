@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ApplicationInitService } from './services/application-init/application-init.service';
+import { NavBarModule } from './modules/user-interface/nav-bar/nav-bar.module';
 
 const applicationInit =
   (applicationInitService: ApplicationInitService) => (): Promise<any> =>
@@ -11,7 +12,7 @@ const applicationInit =
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, NavBarModule],
   providers: [
     {
       provide: APP_INITIALIZER,

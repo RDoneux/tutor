@@ -1,0 +1,13 @@
+<section class="nav-bar__container">
+  <img
+    class="nav-bar__logo"
+    src="/assets/logos/primary-logo.png"
+    alt="Megan Doneux Tutoring Logo"
+    [routerLink]="routes.home.url"
+  />
+  <div class="nav-bar__nav-items">
+    <span [routerLink]="[routes.aboutMe.url]">{{ routes.aboutMe.label }}</span>
+    <span [routerLink]="routes.pricing.url">{{ routes.pricing.label }}</span>
+    <span [routerLink]="routes.enquire.url">{{ routes.enquire.label }}</span>
+  </div>
+</section>

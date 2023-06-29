@@ -4,6 +4,7 @@ import { TextInputModule } from './text-input/text-input.module';
 import { EnquiryFormModule } from './enquiry-form/enquiry-form.module';
 import { SeparatorsModule } from './separators/separators.module';
 import { CheckboxModule } from './checkbox/checkbox.module';
+import { NavBarModule } from './nav-bar/nav-bar.module';
 
 @NgModule({
   declarations: [],
@@ -13,6 +14,7 @@ import { CheckboxModule } from './checkbox/checkbox.module';
     CheckboxModule,
     EnquiryFormModule,
     SeparatorsModule,
+    NavBarModule,
   ],
 })
 export class UserInterfaceModule {}
