@@ -6,21 +6,63 @@
     [routerLink]="routes.home.url"
   />
   <div class="nav-bar__nav-items">
+    <div class="nav-bar__route-wrapper" [ngTemplateOutlet]="navRoutes"></div>
+    <span class="material-symbols-rounded" (click)="displayMobileMenu()"
+      >menu</span
+    >
+  </div>
+</section>
+
+<section [class.show-mobile-menu]="showMobileMenu" class="nav-bar__mobile-menu">
+  <div class="nav-bar__title-section">
+    <span class="material-symbols-rounded" (click)="hideMobileMenu()"
+      >close</span
+    >
+    <h2>Menu</h2>
+  </div>
+  <div [ngTemplateOutlet]="navRoutes"></div>
+  <app-horizontal-separator></app-horizontal-separator>
+  <div class="nav-bar__social-icon-wrapper">
+    <a
+      *ngIf="externalLinks.facebook"
+      [href]="externalLinks.facebook"
+      target="_blank"
+      ><img src="/assets/logos/facebook-logo.png" alt="facebook logo"
+    /></a>
+    <a
+      *ngIf="externalLinks.linkedIn"
+      [href]="externalLinks.linkedIn"
+      target="_blank"
+      ><img src="/assets/logos/linked-in-logo.png" alt="linkedin logo"
+    /></a>
+    <a
+      *ngIf="externalLinks.twitter"
+      [href]="externalLinks.twitter"
+      target="_blank"
+      ><img src="/assets/logos/twitter-logo.png" alt="twitter logo"
+    /></a>
+  </div>
+</section>
+
+<ng-template #navRoutes>
+  <div class="nav-bar__routes">
     <span
       [routerLink]="routes.aboutMe.url"
       [routerLinkActive]="['active-route']"
+      (click)="hideMobileMenu()"
       >{{ routes.aboutMe.label }}</span
     >
     <span
       [routerLink]="routes.pricing.url"
       [routerLinkActive]="['active-route']"
+      (click)="hideMobileMenu()"
       >{{ routes.pricing.label }}</span
     >
     <span
       [routerLink]="routes.enquire.url"
       [routerLinkActive]="['active-route']"
+      (click)="hideMobileMenu()"
       >{{ routes.enquire.label }}</span
     >
-    <span class="material-symbols-rounded">menu</span>
   </div>
-</section>
+</ng-template>
