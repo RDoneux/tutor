@@ -14,11 +14,10 @@ $border-radius: 5px;
 
 $font-family: 'Open Sans', sans-serif;  
 
-$mobile-start: 600px;
-$tablet-end: 600px;
-$tablet-landscape-end: 768px;
-$laptop-end: 992px;
-$desktop-start: 1200px;
+$mobile-start: 500px; // smaller than 600px
+$tablet-start: 768px; // smaller than 768px 
+$laptop-start: 992px; // smaller than 992px
+$desktop-start: 1200px; // larger than 1200px
 
 //  /* Extra small devices (phones, 600px and down) */
 //  @media only screen and (max-width: 600px) {...}
