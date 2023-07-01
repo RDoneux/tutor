@@ -15,7 +15,7 @@
 
 <section [class.show-mobile-menu]="showMobileMenu" class="nav-bar__mobile-menu">
   <div class="nav-bar__title-section">
-    <span class="material-symbols-rounded" (click)="hideMobileMenu()"
+    <span id="closeIcon" class="material-symbols-rounded" (click)="hideMobileMenu()"
       >close</span
     >
     <h2>Menu</h2>
@@ -24,18 +24,21 @@
   <app-horizontal-separator></app-horizontal-separator>
   <div class="nav-bar__social-icon-wrapper">
     <a
+      id="facebookLogo"
       *ngIf="externalLinks.facebook"
       [href]="externalLinks.facebook"
       target="_blank"
       ><img src="assets/logos/facebook-logo.png" alt="facebook logo"
     /></a>
     <a
+      id="linkedInLogo"
       *ngIf="externalLinks.linkedIn"
       [href]="externalLinks.linkedIn"
       target="_blank"
       ><img src="assets/logos/linked-in-logo.png" alt="linkedin logo"
     /></a>
     <a
+      id="twitterLogo"
       *ngIf="externalLinks.twitter"
       [href]="externalLinks.twitter"
       target="_blank"
