@@ -20,10 +20,6 @@
 
     display: inline-grid;
 
-    @include laptop {
-        padding: 1rem;
-    }
-
     @include desktop {
         display: grid;
         grid-template-columns: repeat(10, 1fr);

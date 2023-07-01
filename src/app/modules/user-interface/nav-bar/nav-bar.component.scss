@@ -6,8 +6,9 @@
     justify-content: space-between;
     align-items: center;
 
-    height: 15%;
-    max-height: 55px;
+    min-height: $nav-bar-height;
+    height: $nav-bar-height;
+    max-height: $nav-bar-height;
 
     padding: 10px 15px;
 
@@ -53,6 +54,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 2;
 
     background-color: $secondary-colour;
 
@@ -106,9 +108,10 @@
         justify-self: center;
         justify-content: space-evenly;
 
-        img{
+        img {
             width: 25px;
-            &:hover{
+
+            &:hover {
                 cursor: pointer;
             }
         }

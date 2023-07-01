@@ -83,5 +83,8 @@ export class EnquiryFormComponent {
     },
   };
 
-  onSubmit() {}
+  onSubmit() {
+    
+    console.log(this.enquiryForm);
+  }
 }

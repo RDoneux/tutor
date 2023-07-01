@@ -1,4 +1,4 @@
-<form class="enquiry-form__container" [name]="formName" (ngSubmit)="onSubmit()">
+<form #form class="enquiry-form__container" [name]="formName" (ngSubmit)="onSubmit()">
   <h1 class="enquiry-form__form-title">Enquire Now</h1>
   <!-- Year Group or Age -->
   <app-text-input
@@ -151,7 +151,7 @@
       type="checkbox"
       [name]="enquiryForm.toggleComments.name"
       [(ngModel)]="enquiryForm.toggleComments.value"
-      [ngModelOptions]="{standalone: true}"
+      [ngModelOptions]="{ standalone: true }"
   /></app-checkbox>
 
   <!-- Additional Comments -->
