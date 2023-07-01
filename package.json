@@ -4,13 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
     "deploy": "ng deploy --base-href=/tutor/",
-    "test:ci": "ng test --watch=false --browsers ChromeHeadless",
+    "test:ci": "ng test --watch=false --browsers ChromeHeadless && npm run e2e",
     "build:ci": "ng build",
-    "e2e": "ng e2e",
+    "e2e": "concurrently \"npm run start\" \"wait-on http-get://localhost:4200 && npm run cypress:run\" --kill-others --success first",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
   },
@@ -40,6 +38,8 @@
     "@types/jasmine": "~4.3.0",
     "@types/uuid": "^9.0.2",
     "angular-cli-ghpages": "^1.0.6",
+    "concurrently": "^8.2.0",
+    "cypress": "latest",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
@@ -47,6 +47,6 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "typescript": "~5.0.2",
-    "cypress": "latest"
+    "wait-on": "^7.0.1"
   }
 }
