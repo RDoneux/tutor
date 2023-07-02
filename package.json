@@ -9,7 +9,7 @@
     "test:ci": "ng test --watch=false --browsers ChromeHeadless && npm run e2e",
     "build:ci": "ng build",
     "e2e": "concurrently \"npm run start\" \"wait-on http-get://localhost:4200 && npm run cypress:run\" --kill-others --success first",
-    "cypress:open": "cypress open",
+    "cypress:open": "concurrently \"npm run start\" \"wait-on http-get://localhost:4200 && cypress open\" --success first",
     "cypress:run": "cypress run"
   },
   "private": true,
