@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PricingComponent } from './pricing.component';
+import { HowPricingWorksComponent } from './components/how-pricing-works/how-pricing-works.component';
 
 describe('PricingComponent', () => {
   let component: PricingComponent;
@@ -8,7 +9,7 @@ describe('PricingComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PricingComponent]
+      declarations: [PricingComponent, HowPricingWorksComponent]
     });
     fixture = TestBed.createComponent(PricingComponent);
     component = fixture.componentInstance;
