@@ -25,5 +25,25 @@ describe('Pricing Page', () => {
       cy.get('#itemContainerTwo').should('not.have.class', 'extended');
       cy.get('#itemContainerThree').should('not.have.class', 'extended');
     });
+    it('should use correct desktop stylings', () => {
+      cy.get('.pricing-works__content-wrapper').should(
+        'have.css',
+        'grid-template-columns',
+        '0px 600px 150px 150px 0px'
+      );
+    });
+
+    describe('Mobile Display', () => {
+      beforeEach(() => {
+        cy.viewport(500, 900);
+      });
+      it('should display component vertically', () => {
+        cy.get('.pricing-works__content-wrapper').should(
+          'have.css',
+          'grid-template-columns',
+          '500px'
+        );
+      });
+    });
   });
 });

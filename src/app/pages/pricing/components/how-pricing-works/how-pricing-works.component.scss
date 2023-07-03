@@ -150,9 +150,7 @@ $transition-time: 300ms;
         @include tablet {
             grid-template-columns: 1fr;
             row-gap: 10px;
-
-
-
+            
             .pricing-works__item-container {
                 width: $item-size-mobile;
                 height: $item-size-mobile;
