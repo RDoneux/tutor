@@ -1,0 +1,144 @@
+@import 'variables';
+
+$item-size: 150px;
+$transition-time: 300ms;
+
+.pricing-works__container {
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    padding: 2rem;
+    margin: 2rem 0;
+
+    background: $background-colour;
+
+    .pricing-works__content-wrapper {
+
+        display: grid;
+
+        grid-template-columns: 1fr repeat(3, 1fr) 1fr;
+        grid-template-rows: 1fr;
+
+        column-width: 250px;
+
+        align-items: center;
+        justify-items: center;
+
+        width: 100%;
+
+        #itemContainerOne {
+            grid-column: 2;
+        }
+
+        .pricing-works__title {
+            text-align: center;
+            font-size: 36px;
+            margin: 0;
+            margin-bottom: 1rem;
+            padding: 0;
+
+
+            grid-column: 1 / span 5
+        }
+
+        .pricing-works__item-container {
+            width: $item-size;
+            height: $item-size;
+
+            border-radius: $item-size;
+
+            background-color: $accent-colour;
+
+            display: grid;
+            grid-template-columns: $item-size 1fr;
+            grid-template-rows: $item-size;
+            align-items: center;
+            justify-items: center;
+
+            overflow: hidden;
+
+            transition: width $transition-time linear;
+
+            @extend .part-extend;
+
+            &::before {
+                content: '';
+                width: $item-size;
+                height: $item-size;
+                position: absolute;
+                background: $primary-colour;
+                justify-self: flex-start;
+
+                border-radius: $item-size;
+                transition: box-shadow 100ms linear;
+
+
+            }
+
+            .pricing-works__item-text {
+
+                display: flex;
+                flex-direction: column;
+
+                justify-content: center;
+
+                color: $background-colour;
+                font-size: 20px;
+                z-index: 1;
+                transition: transform 150ms ease-out;
+                padding: 0 20px;
+                text-align: center;
+
+                transform: inherit;
+
+                .material-symbols-rounded {
+                    font-size: 40px;
+                }
+            }
+
+            .pricing-works__item-paragraph {
+                padding: 1rem;
+                width: calc(60vw - $item-size);
+                text-align: center;
+                color: $background-colour;
+                font-size: 20px;
+            }
+
+
+            &:hover {
+                cursor: pointer;
+
+                .pricing-works__item-text {
+                    transform: scale(1.1)
+                }
+            }
+
+            &.extended {
+                transition: width $transition-time linear;
+                width: 60vw;
+                z-index: 2;
+
+                &::before {
+                    box-shadow: 3px 0 6px $text-colour;
+
+                }
+
+                .pricing-works__item-text {
+                    transform: scale(1.1)
+                }
+            }
+
+            &.part-extend {
+                width: calc($item-size + 10px);
+
+                &::before {
+                    box-shadow: 3px 0 6px $text-colour;
+                }
+            }
+        }
+    }
+}

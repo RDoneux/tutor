@@ -1,0 +1,47 @@
+<div class="pricing-works__container">
+  <div class="pricing-works__content-wrapper">
+    <h1 class="pricing-works__title">How the Pricing Works</h1>
+    <div
+      id="itemContainerOne"
+      class="pricing-works__item-container"
+      (click)="toggleShowSlotOne()"
+      [class.extended]="showSlotOne"
+    >
+      <span class="pricing-works__item-text">
+        <span class="material-symbols-rounded">pan_tool</span>
+        {{pricingInfo.slotOne.label}}
+      </span>
+      <span class="pricing-works__item-paragraph">{{
+        pricingInfo.slotOne.content
+      }}</span>
+    </div>
+    <div
+      id="itemContainerTwo"
+      class="pricing-works__item-container"
+      (click)="toggleShowSlotTwo()"
+      [class.extended]="showSlotTwo"
+    >
+      <span class="pricing-works__item-text">
+        <span class="material-symbols-rounded">school</span>
+        {{pricingInfo.slotTwo.label}}
+      </span>
+      <span class="pricing-works__item-paragraph">{{
+        pricingInfo.slotTwo.content
+      }}</span>
+    </div>
+    <div
+      id="itemContainerThree"
+      class="pricing-works__item-container"
+      (click)="toggleShowSlotThree()"
+      [class.extended]="showSlotThree"
+    >
+      <span class="pricing-works__item-text">
+        <span class="material-symbols-rounded">groups_2</span>
+        {{pricingInfo.slotThree.label}}
+      </span>
+      <span class="pricing-works__item-paragraph">{{
+        pricingInfo.slotThree.content
+      }}</span>
+    </div>
+  </div>
+</div>
