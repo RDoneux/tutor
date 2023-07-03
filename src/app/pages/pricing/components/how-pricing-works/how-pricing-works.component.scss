@@ -1,6 +1,7 @@
 @import 'variables';
+@import 'mixins';
 
-$item-size: 150px;
+$item-size: 140px;
 $transition-time: 300ms;
 
 .pricing-works__container {
@@ -11,10 +12,14 @@ $transition-time: 300ms;
     justify-content: center;
     width: 100%;
 
-    padding: 2rem;
+    padding: 3rem 2rem;
     margin: 2rem 0;
 
     background: $background-colour;
+
+    @include tablet {
+        padding: 3rem 0;
+    }
 
     .pricing-works__content-wrapper {
 
@@ -22,7 +27,7 @@ $transition-time: 300ms;
 
         grid-template-columns: 1fr repeat(3, 1fr) 1fr;
         grid-template-rows: 1fr;
-
+        column-gap: 10px;
         column-width: 250px;
 
         align-items: center;
@@ -36,13 +41,13 @@ $transition-time: 300ms;
 
         .pricing-works__title {
             text-align: center;
-            font-size: 36px;
+            font-size: 30px;
             margin: 0;
             margin-bottom: 1rem;
             padding: 0;
 
+            grid-column: 1 / span 5;
 
-            grid-column: 1 / span 5
         }
 
         .pricing-works__item-container {
@@ -87,7 +92,7 @@ $transition-time: 300ms;
                 justify-content: center;
 
                 color: $background-colour;
-                font-size: 20px;
+                font-size: 16px;
                 z-index: 1;
                 transition: transform 150ms ease-out;
                 padding: 0 20px;
@@ -96,16 +101,16 @@ $transition-time: 300ms;
                 transform: inherit;
 
                 .material-symbols-rounded {
-                    font-size: 40px;
+                    font-size: 35px;
                 }
             }
 
             .pricing-works__item-paragraph {
-                padding: 1rem;
+                padding: 1rem 1.5rem;
                 width: calc(60vw - $item-size);
                 text-align: center;
-                color: $background-colour;
-                font-size: 20px;
+                color: $text-colour;
+                font-size: 16px;
             }
 
 
@@ -138,6 +143,32 @@ $transition-time: 300ms;
                 &::before {
                     box-shadow: 3px 0 6px $text-colour;
                 }
+            }
+        }
+
+        @include tablet {
+            grid-template-columns: 1fr;
+            row-gap: 10px;
+
+            .pricing-works__item-container {
+                .pricing-works__item-paragraph {
+                    width: calc(96vw - $item-size);
+                    font-size: 14px;
+                }
+
+                &.extended {
+                    width: 96vw;
+                    font-size: 16px;
+                }
+            }
+
+
+            #itemContainerOne {
+                grid-column: 1;
+            }
+
+            .pricing-works__title {
+                grid-column: 1
             }
         }
     }

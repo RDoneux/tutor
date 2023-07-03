@@ -15,7 +15,7 @@ export class HowPricingWorksComponent {
     slotOne: {
       label: 'No upfront fees',
       content:
-        'You can start and end the tuition whenever you want. We can work around a session pattern and length that is best for you and your child',
+        'You can start and end the tuition whenever you want. We can work around a session pattern and length that is best for you and your child.',
     },
     slotTwo: {
       label: 'Pay how you want',
