@@ -1,7 +1,8 @@
 @import 'variables';
 @import 'mixins';
 
-$item-size: 140px;
+$item-size-desktop: 140px;
+$item-size-mobile: 110px;
 $transition-time: 300ms;
 
 .pricing-works__container {
@@ -51,16 +52,16 @@ $transition-time: 300ms;
         }
 
         .pricing-works__item-container {
-            width: $item-size;
-            height: $item-size;
+            width: $item-size-desktop;
+            height: $item-size-desktop;
 
-            border-radius: $item-size;
+            border-radius: $item-size-desktop;
 
             background-color: $accent-colour;
 
             display: grid;
-            grid-template-columns: $item-size 1fr;
-            grid-template-rows: $item-size;
+            grid-template-columns: $item-size-desktop 1fr;
+            grid-template-rows: $item-size-desktop;
             align-items: center;
             justify-items: center;
 
@@ -72,13 +73,13 @@ $transition-time: 300ms;
 
             &::before {
                 content: '';
-                width: $item-size;
-                height: $item-size;
+                width: $item-size-desktop;
+                height: $item-size-desktop;
                 position: absolute;
                 background: $primary-colour;
                 justify-self: flex-start;
 
-                border-radius: $item-size;
+                border-radius: $item-size-desktop;
                 transition: box-shadow 100ms linear;
 
 
@@ -107,7 +108,7 @@ $transition-time: 300ms;
 
             .pricing-works__item-paragraph {
                 padding: 1rem 1.5rem;
-                width: calc(60vw - $item-size);
+                width: calc(60vw - $item-size-desktop);
                 text-align: center;
                 color: $text-colour;
                 font-size: 16px;
@@ -138,7 +139,7 @@ $transition-time: 300ms;
             }
 
             &.part-extend {
-                width: calc($item-size + 10px);
+                width: calc($item-size-desktop + 10px);
 
                 &::before {
                     box-shadow: 3px 0 6px $text-colour;
@@ -150,10 +151,33 @@ $transition-time: 300ms;
             grid-template-columns: 1fr;
             row-gap: 10px;
 
+
+
             .pricing-works__item-container {
-                .pricing-works__item-paragraph {
-                    width: calc(96vw - $item-size);
+                width: $item-size-mobile;
+                height: $item-size-mobile;
+
+                grid-template-columns: $item-size-mobile 1fr;
+                grid-template-rows: $item-size-mobile;
+
+                &::before {
+                    width: $item-size-mobile;
+                    height: $item-size-mobile;
+                }
+
+                .pricing-works__item-text {
                     font-size: 14px;
+
+                    .material-symbols-rounded {
+                        font-size: 25px;
+                    }
+                }
+
+                .pricing-works__item-paragraph {
+                    width: calc(96vw - $item-size-mobile);
+                    font-size: 14px;
+                    padding-right: 10px;
+                    padding-left: 5px;
                 }
 
                 &.extended {
