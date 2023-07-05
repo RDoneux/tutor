@@ -1,0 +1,15 @@
+<div #rangeInputContainer class="range__container">
+  <label [for]="id">{{ label }}</label>
+  <ng-content></ng-content>
+  <datalist
+    [style.writing-mode]="tickDirection"
+    [style.flex-direction]="tickLayout"
+    [id]="this.id + '_range-tick-list'"
+  >
+    <option
+      *ngFor="let tick of ticks; let i = index"
+      [value]="tick.value"
+      [label]="tick.label"
+    ></option>
+  </datalist>
+</div>

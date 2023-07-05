@@ -16,6 +16,7 @@ import {
 import { v4 } from 'uuid';
 import { debugError } from '../../../utils/debug';
 import { IsDevModeService } from 'src/app/services/is-dev-mode/is-dev-mode.service';
+import { createId } from '../user-interface.utils';
 
 @Component({
   selector: 'app-text-input',
@@ -59,7 +60,7 @@ export class TextInputComponent implements AfterViewInit {
   addListeners(): void {
     setTimeout(() => {
       this.hasContent = this.checkForContent();
-      this.createId();
+      this.id = createId(this.input, this.id);
     });
     if (!this.input) return;
     fromEvent(this.input, 'keyup').subscribe({
@@ -81,11 +82,6 @@ export class TextInputComponent implements AfterViewInit {
 
   checkForContent(): boolean {
     return (this.input?.value?.length ?? 0) > 0;
-  }
-
-  createId(): void {
-    if (!this.input) return;
-    this.input.id ? (this.id = this.input.id) : (this.input.id = this.id);
   }
 
   validateComponent(): boolean {

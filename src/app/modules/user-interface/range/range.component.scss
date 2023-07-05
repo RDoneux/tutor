@@ -1,0 +1,15 @@
+.range__container {
+    display: flex;
+    flex-direction: column;
+
+    datalist {
+        display: flex;
+        justify-content: space-between;
+        width: 200px;
+        padding: 0 7px;
+
+        option {
+            padding-top: 5px;
+        }
+    }
+}

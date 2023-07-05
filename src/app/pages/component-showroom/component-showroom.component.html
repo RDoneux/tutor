@@ -1,4 +1,4 @@
-<!-- <section class="component-showroom__container">
+<section class="component-showroom__container">
   <h1 class="component-showroom__page-title">Component Showroom</h1>
   <h3>Input Fields</h3>
   <form class="component-showroom__item-type-container">
@@ -115,8 +115,28 @@
     <input type="submit" value="Disabled Basic Button" disabled />
   </form>
 </section>
-<app-horizontal-separator></app-horizontal-separator> -->
+
+<app-horizontal-separator></app-horizontal-separator>
 
 <section>
   <app-enquiry-form></app-enquiry-form>
+</section>
+
+<app-horizontal-separator></app-horizontal-separator>
+
+<section class="component-showroom__container">
+  <app-range
+    [label]="'Range Input'"
+    [ticks]="[
+      { value: 1, label: '1' },
+      { value: 2, label: '2' },
+      { value: 3, label: '3' },
+      { value: 4, label: '4' },
+      { value: 5, label: '5' }
+    ]"
+    [tickDirection]="'none'"
+    [tickLayout]="'row'"
+  >
+    <input type="range" min="1" max="5" step="1" value="1" />
+  </app-range>
 </section>

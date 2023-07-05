@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TextInputComponent } from './text-input.component';
 import { ErrorIconModule } from '../../icons/error-icon/error-icon.module';
 import { ElementRef } from '@angular/core';
+import { createId } from '../user-interface.utils';
 
 describe('TextInputComponent', () => {
   let component: TextInputComponent;
@@ -63,7 +64,10 @@ describe('TextInputComponent', () => {
     it('should set input to valid uuid when id is not defined on input', () => {
       component.container = createContainerElementRef();
       component.ngAfterViewInit();
-      component.createId();
+      component.id = createId(
+        component.container.nativeElement.children[0] as HTMLInputElement,
+        component.id
+      );
 
       expect(component.container.nativeElement.children[0].id).toMatch(
         /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/
@@ -76,7 +80,10 @@ describe('TextInputComponent', () => {
     it('should set component id to input id when input id is defined', () => {
       component.container = createContainerElementRef('', 'test-id');
       component.ngAfterViewInit();
-      component.createId();
+      component.id = createId(
+        component.container.nativeElement.children[0] as HTMLInputElement,
+        component.id
+      );
 
       expect(component.container.nativeElement.children[0].id).toEqual(
         'test-id'
