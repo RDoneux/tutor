@@ -4,6 +4,7 @@ import {
   ElementRef,
   Input,
   ViewChild,
+  ViewEncapsulation,
 } from '@angular/core';
 import { debugError } from 'src/app/utils/debug';
 import { v4 } from 'uuid';
@@ -14,6 +15,7 @@ import { IRangeTick } from './i-range-tick';
   selector: 'app-range',
   templateUrl: './range.component.html',
   styleUrls: ['./range.component.scss'],
+  encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class RangeComponent implements AfterViewInit {
   @Input({ required: true }) label!: string;
@@ -26,18 +28,28 @@ export class RangeComponent implements AfterViewInit {
     | 'horizontal-tb'
     | 'none' = 'vertical-lr';
   @Input() tickLayout: 'column' | 'row' = 'column';
+  @Input() valueMetric: string = '';
 
   @ViewChild('rangeInputContainer') container:
     | ElementRef<HTMLInputElement>
     | undefined = undefined;
 
   public id: string = v4();
+  public inputValue: string = '';
 
   private input: HTMLInputElement | undefined = undefined;
 
   ngAfterViewInit(): void {
     this.input = this.container?.nativeElement.children[1] as HTMLInputElement;
+    this.inputValue = this.input?.value ?? '';
+
     if (this.validateInput()) {
+      this.input.onmousemove = () => {
+        const inputValue: string | undefined = this.input?.value;
+        if (this.inputValue !== inputValue) {
+          this.inputValue = this.input?.value ?? '';
+        }
+      };
     }
   }
 

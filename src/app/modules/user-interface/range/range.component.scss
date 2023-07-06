@@ -1,12 +1,52 @@
+@import 'variables';
+
 .range__container {
     display: flex;
     flex-direction: column;
 
+    label {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+
+        .range__value {
+            position: absolute;
+            right: 0;
+        }
+    }
+
+    input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        background: transparent;
+        cursor: pointer;
+
+        &::-webkit-slider-runnable-track,
+        &::-moz-range-track {
+            background: $primary-colour;
+        }
+
+        &::-webkit-slider-thumb,
+        &::-moz-range-thumb {
+            background: $accent-colour;
+            border: none;
+        }
+    }
+
     datalist {
         display: flex;
         justify-content: space-between;
-        width: 200px;
         padding: 0 7px;
+
+        &.row {
+            flex-direction: row;
+        }
+
+        &.column {
+            flex-direction: column;
+            padding: 0;
+        }
 
         option {
             padding-top: 5px;

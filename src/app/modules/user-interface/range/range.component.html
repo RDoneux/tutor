@@ -1,9 +1,12 @@
 <div #rangeInputContainer class="range__container">
-  <label [for]="id">{{ label }}</label>
+  <label [for]="id"
+    ><span>{{ label }}</span
+    ><span class="range__value">{{ inputValue }} {{ valueMetric }}</span></label
+  >
   <ng-content></ng-content>
   <datalist
     [style.writing-mode]="tickDirection"
-    [style.flex-direction]="tickLayout"
+    [class]="tickLayout"
     [id]="this.id + '_range-tick-list'"
   >
     <option

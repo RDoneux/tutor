@@ -125,18 +125,63 @@
 <app-horizontal-separator></app-horizontal-separator>
 
 <section class="component-showroom__container">
-  <app-range
-    [label]="'Range Input'"
-    [ticks]="[
-      { value: 1, label: '1' },
-      { value: 2, label: '2' },
-      { value: 3, label: '3' },
-      { value: 4, label: '4' },
-      { value: 5, label: '5' }
-    ]"
-    [tickDirection]="'none'"
-    [tickLayout]="'row'"
-  >
-    <input type="range" min="1" max="5" step="1" value="1" />
-  </app-range>
+  <div class="component-showroom__item-type-container">
+    <app-range [label]="'Basic Range Input'">
+      <input type="range" />
+    </app-range>
+
+    <app-range
+      [label]="'Range Input'"
+      [ticks]="[
+        { value: 1, label: '1' },
+        { value: 2, label: '2' },
+        { value: 3, label: '3' },
+        { value: 4, label: '4' },
+        { value: 5, label: '5' }
+      ]"
+      [tickDirection]="'none'"
+      [tickLayout]="'row'"
+    >
+      <input type="range" min="1" max="5" step="1" value="1" />
+    </app-range>
+
+    <app-range
+      [label]="'Range Input'"
+      [ticks]="[
+        { value: 30, label: '30 minutes' },
+        { value: 90, label: '1.5 hours' }
+      ]"
+      [tickDirection]="'horizontal-tb'"
+      [tickLayout]="'row'"
+      [valueMetric]="'minutes'"
+    >
+      <input type="range" min="30" max="90" step="10" value="45" />
+    </app-range>
+
+    <app-range
+      [label]="'Range Input'"
+      [ticks]="[
+        { value: 30, label: '30 minutes' },
+        { value: 90, label: '1.5 hours' }
+      ]"
+      [tickDirection]="'horizontal-tb'"
+      [tickLayout]="'row'"
+      [valueMetric]="'minutes'"
+    >
+      <input type="range" min="30" max="90" step="10" value="45" />
+    </app-range>
+
+    <app-range
+      [label]="'Range Input'"
+      [ticks]="[
+        { value: 30, label: '30 minutes' },
+        { value: 90, label: '1.5 hours' }
+      ]"
+      [tickDirection]="'horizontal-tb'"
+      [tickLayout]="'row'"
+      [valueMetric]="'minutes'"
+    >
+      <input type="range" min="30" max="90" step="10" value="45" />
+    </app-range>
+  </div>
 </section>
