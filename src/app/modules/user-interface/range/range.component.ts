@@ -31,7 +31,7 @@ export class RangeComponent implements AfterViewInit {
   @Input() valueMetric: string = '';
 
   @ViewChild('rangeInputContainer') container:
-    | ElementRef<HTMLInputElement>
+    | ElementRef<HTMLDivElement>
     | undefined = undefined;
 
   public id: string = v4();
@@ -41,7 +41,9 @@ export class RangeComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.input = this.container?.nativeElement.children[1] as HTMLInputElement;
-    this.inputValue = this.input?.value ?? '';
+    setTimeout(() => {
+      this.inputValue = this.input?.value ?? '';
+    });
 
     if (this.validateInput()) {
       this.input.onmousemove = () => {
