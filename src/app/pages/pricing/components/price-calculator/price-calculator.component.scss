@@ -1,0 +1,96 @@
+@import 'variables';
+@import 'mixins';
+
+.price-calculator__title {
+    text-align: center;
+}
+
+.price-calculator__container {
+    display: flex;
+    // flex-direction: column;
+    margin: auto;
+
+    width: $desktop-start;
+    max-width: 100%;
+
+    padding: 1rem;
+
+    @include tablet {
+        flex-direction: column;
+        
+    }
+
+    .price-calculator__input-wrapper {
+        width: 70%;
+
+        @include tablet {
+            width: 100%;    
+        }
+
+        .price-calculator__range {
+            width: 100%;
+            margin: 35px 0;
+        }
+    }
+
+    .price-calculator__totals-wrapper {
+
+        margin-left: 2rem;
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        // grid-template-columns: 1fr;
+        grid-template-rows: 40px repeat(4, 110px);
+        // align-items: flex-start;
+        // justify-items: center;
+        align-items: center;
+
+        // gap: 5px;
+
+        // @include mobile {
+        //     display: grid;
+        //     grid-template-columns: 1fr 1fr;
+
+        // }
+
+        @include tablet {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            margin: 1rem 0 0 0;
+            width: 100%;
+            gap: 5px;
+        }
+
+        .price-calculator__total:last-child {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .price-calculator__total {
+
+            margin-bottom: 1rem;
+            background: $background-colour;
+            border-radius: 2px;
+            text-align: center;
+            // border-left: 2px solid $primary-colour;
+
+            // border-bottom: 2px solid $primary-colour;
+            // color: #fff;
+            width: 100%;
+            height: 100%;
+
+            // border-radius: 3px;
+            font-size: 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .full-grid-width {
+            grid-column: 1 / span 2;
+        }
+    }
+
+}

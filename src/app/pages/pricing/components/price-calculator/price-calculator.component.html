@@ -1,0 +1,86 @@
+<section class="price-calculator__container">
+  <div class="price-calculator__input-wrapper">
+    <h1 class="price-calculator__title">{{ pageTitle }}</h1>
+    <app-range
+      class="price-calculator__range"
+      [label]="sliderData.pupilNumber.label"
+      [ticks]="sliderData.pupilNumber.ticks"
+      [tickDirection]="'horizontal-tb'"
+      [tickLayout]="'row'"
+      [valueMetric]="'Pupil'"
+      (changed)="calculateSessionCost()"
+    >
+      <input
+        type="range"
+        min="1"
+        max="5"
+        step="1"
+        [(ngModel)]="sliderData.pupilNumber.value"
+      />
+    </app-range>
+
+    <app-range
+      class="price-calculator__range"
+      [label]="sliderData.sessionLength.label"
+      [ticks]="sliderData.sessionLength.ticks"
+      [tickDirection]="'horizontal-tb'"
+      [tickLayout]="'row'"
+      [valueMetric]="'Minute'"
+      (changed)="calculateSessionCost()"
+    >
+      <input
+        type="range"
+        min="30"
+        max="90"
+        step="10"
+        [(ngModel)]="sliderData.sessionLength.value"
+      />
+    </app-range>
+
+    <app-range
+      class="price-calculator__range"
+      [label]="sliderData.sessionNumber.label"
+      [ticks]="sliderData.sessionNumber.ticks"
+      [tickDirection]="'horizontal-tb'"
+      [tickLayout]="'row'"
+      [valueMetric]="'Lesson'"
+      (changed)="calculateSessionCost()"
+    >
+      <input
+        type="range"
+        min="1"
+        max="10"
+        step="1"
+        [(ngModel)]="sliderData.sessionNumber.value"
+      />
+    </app-range>
+
+    <app-text-input [label]="'Face to Face or Online'">
+      <select
+        [name]="'Session Type'"
+        [(ngModel)]="sessionType"
+        (change)="calculateSessionCost()"
+      >
+        <option [ngValue]="'IN_PERSON'">Face to Face</option>
+        <option [ngValue]="'ONLINE'">Online</option>
+      </select>
+    </app-text-input>
+  </div>
+
+  <!--  -->
+
+  <div class="price-calculator__totals-wrapper">
+    <h1 class="price-calculator__title full-grid-width">Totals</h1>
+    <!-- <div class="price-calculator__totals-wrapper"> -->
+    <div class="price-calculator__total">
+      Individual Session Cost: <br> £{{ individualSessionCost }}
+    </div>
+    <div class="price-calculator__total">
+      Total Discounts: <br> £{{ totalDiscounts }}
+    </div>
+    <div class="price-calculator__total full-grid-width">
+      Total Cost: <br> £{{ totalCost }}
+    </div>
+  </div>
+  <!-- </div> -->
+</section>

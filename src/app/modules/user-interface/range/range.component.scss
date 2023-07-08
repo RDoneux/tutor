@@ -1,5 +1,9 @@
 @import 'variables';
 
+:host {
+    display: block;
+}
+
 .range__container {
     display: flex;
     flex-direction: column;
@@ -25,12 +29,17 @@
         &::-webkit-slider-runnable-track,
         &::-moz-range-track {
             background: $primary-colour;
+            height: 5px;
+            border-radius: 7px;
         }
 
         &::-webkit-slider-thumb,
         &::-moz-range-thumb {
             background: $accent-colour;
             border: none;
+            box-shadow: 2px 2px 2px 0 #888;
+            width: 15px;
+            height: 15px;
         }
     }
 

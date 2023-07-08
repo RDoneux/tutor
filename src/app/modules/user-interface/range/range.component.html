@@ -1,7 +1,10 @@
 <div #rangeInputContainer class="range__container">
   <label [for]="id"
     ><span>{{ label }}</span
-    ><span class="range__value">{{ inputValue }} {{ valueMetric }}</span></label
+    ><span class="range__value"
+      >{{ inputValue }} {{ valueMetric
+      }}{{ +inputValue !== 1 ? "s" : "" }}</span
+    ></label
   >
   <ng-content></ng-content>
   <datalist

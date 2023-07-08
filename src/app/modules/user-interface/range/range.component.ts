@@ -2,7 +2,9 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  EventEmitter,
   Input,
+  Output,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -30,6 +32,8 @@ export class RangeComponent implements AfterViewInit {
   @Input() tickLayout: 'column' | 'row' = 'column';
   @Input() valueMetric: string = '';
 
+  @Output() changed: EventEmitter<string> = new EventEmitter();
+
   @ViewChild('rangeInputContainer') container:
     | ElementRef<HTMLDivElement>
     | undefined = undefined;
@@ -47,12 +51,18 @@ export class RangeComponent implements AfterViewInit {
 
     if (this.validateInput()) {
       this.input.onmousemove = () => {
-        const inputValue: string | undefined = this.input?.value;
-        if (this.inputValue !== inputValue) {
-          this.inputValue = this.input?.value ?? '';
-        }
+        this.updateInput(this.input?.value ?? '');
+      };
+      this.input.onclick = () => {
+        this.updateInput(this.input?.value ?? '');
       };
     }
+  }
+
+  private updateInput(newInput: string): void {
+    if (this.inputValue === newInput) return;
+    this.inputValue = newInput;
+    this.changed.emit(this.inputValue);
   }
 
   validateInput(): boolean {
