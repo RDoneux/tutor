@@ -8,6 +8,7 @@ import { PriceCalculatorComponent } from './components/price-calculator/price-ca
 import { RangeModule } from 'src/app/modules/user-interface/range/range.module';
 import { FormsModule } from '@angular/forms';
 import { TextInputModule } from 'src/app/modules/user-interface/text-input/text-input.module';
+import { TextInputComponent } from 'src/app/modules/user-interface/text-input/text-input.component';
 
 @NgModule({
   declarations: [
